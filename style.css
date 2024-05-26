@@ -7,16 +7,27 @@
   body {
     padding: 0;
     margin: 0;
-    background: linear-gradient(to right, #00AAFF, #00FF6C);
+    background: linear-gradient(to bottom, #01293d, #038539);
   }
   
+  h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.9rem;
+    text-align: center;
+    width: 100%;
+    padding: 3vh;
+    margin-top: 0;
+    color: #0a9;
+    background-color: #012933;
+  }
+
   .calculator-grid {
     display: grid;
     justify-content: center;
     align-content: center;
     min-height: 100vh;
-    grid-template-columns: repeat(4, 10vw);
-    grid-template-rows: minmax(12vh, auto) repeat(5, 10vh);
+    grid-template-columns: repeat(4, 12vw);
+    grid-template-rows: minmax(18vh, auto) repeat(6, 12vh);
   }
   
   .calculator-grid > button {

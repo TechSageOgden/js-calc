@@ -59,6 +59,41 @@ class Calculator {
         this.previousOperand = '';
     }
 
+    oneoverx() {
+        let computation
+        if (this.currentOperand === '') return
+        const current = parseFloat(this.currentOperand)
+        if (isNaN(current)) return;
+        computation = 1 / current
+        this.currentOperand = computation
+        this.operation = undefined
+        this.previousOperand = ''
+    }
+
+    square() {
+        let computation
+        if (this.currentOperand === '') return
+        const current = parseFloat(this.currentOperand)
+        if (isNaN(current)) return
+
+        computation = current * current
+        this.currentOperand = computation
+        this.operation = undefined
+        this.previousOperand = ''
+    }
+
+    squareRoot() {
+        let computation
+        if (this.currentOperand === '') return
+        const current = parseFloat(this.currentOperand)
+        if (isNaN(current)) return
+
+        computation = Math.sqrt(current)
+        this.currentOperand = computation
+        this.operation = undefined
+        this.previousOperand = ''
+    }
+
     updateDisplay() {
         this.currentOperandTextElement.innerText = this.currentOperand;
         this.previousOperandTextElement.innerText = this.previousOperand;
@@ -70,10 +105,30 @@ const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
 const allClearButton = document.querySelector('[data-all-clear]');
+const oneOverXButton = document.querySelector('[data-onex]')
+const squareButton = document.querySelector('[data-square]')
+const squareRootButton = document.querySelector('[data-squareroot]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]');
 const currentOperandTextElement = document.querySelector('[data-current-operand]');
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+
+console.log(oneOverXButton)
+
+oneOverXButton.addEventListener('click', () => {
+    calculator.oneoverx()
+    calculator.updateDisplay()
+})
+
+squareButton.addEventListener('click', () => {
+    calculator.square()
+    calculator.updateDisplay()
+})
+
+squareRootButton.addEventListener('click', () => {
+    calculator.squareRoot()
+    calculator.updateDisplay()
+})
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
